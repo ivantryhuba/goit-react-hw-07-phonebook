@@ -1,5 +1,20 @@
 {
   "contacts": [
-   
+    {
+      "newContact": {
+        "name": "Boba Fat",
+        "number": "+38(050)-68-37-280"
+      },
+      "completed": false,
+      "id": 1
+    },
+    {
+      "newContact": {
+        "name": "Boba Fat",
+        "number": "+38(050)-68-37-280"
+      },
+      "completed": false,
+      "id": 2
+    }
   ]
 }

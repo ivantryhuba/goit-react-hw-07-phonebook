@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import contactsActions from '../../redux/contactsActions';
+import * as contactsActions from '../../redux/contactsActions';
 import { connect } from 'react-redux';
 import {
   ContactListStyled,
@@ -35,10 +35,10 @@ ContactList.propTypes = {
 };
 
 const getContacts = (allContacts, filter) => {
-  const normalizeFilter = filter.toLowerCase();
+  const normalizedFilter = filter.toLowerCase();
 
   return allContacts.filter(contact =>
-    contact.name.toLocaleLowerCase().includes(normalizeFilter),
+    contact.name.toLocaleLowerCase().includes(normalizedFilter),
   );
 };
 
