@@ -15,6 +15,30 @@
       },
       "completed": false,
       "id": 2
+    },
+    {
+      "newContact": {
+        "name": "Boba Fat",
+        "number": "+38(050)-68-37-280"
+      },
+      "completed": false,
+      "id": 3
+    },
+    {
+      "newContact": {
+        "name": "Boba Fat",
+        "number": "+38(050)-68-37-280"
+      },
+      "completed": false,
+      "id": 4
+    },
+    {
+      "newContact": {
+        "name": "Boba Fat",
+        "number": "+38(050)-68-37-280"
+      },
+      "completed": false,
+      "id": 5
     }
   ]
 }
