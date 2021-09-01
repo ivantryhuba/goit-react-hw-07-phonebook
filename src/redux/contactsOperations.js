@@ -8,12 +8,10 @@ import {
 axios.defaults.baseURL = 'http://localhost:5555';
 
 const addContact = newContact => dispatch => {
-  const contact = { newContact, completed: false };
-
   dispatch(addContactRequest());
 
   axios
-    .post('/contacts', contact)
+    .post('/contacts', newContact)
     .then(({ data }) => dispatch(addContactSuccess(data)))
     .catch(error => dispatch(addContactError(error)));
 };

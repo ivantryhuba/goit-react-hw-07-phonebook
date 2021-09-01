@@ -26,7 +26,7 @@ const ContactList = ({ contacts, onRemoveContact }) => {
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     }),
@@ -35,10 +35,10 @@ ContactList.propTypes = {
 };
 
 const getContacts = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
+  const normalizeFilter = filter.toLowerCase();
 
   return allContacts.filter(contact =>
-    contact.name.toLocaleLowerCase().includes(normalizedFilter),
+    contact.name.toLocaleLowerCase().includes(normalizeFilter),
   );
 };
 
