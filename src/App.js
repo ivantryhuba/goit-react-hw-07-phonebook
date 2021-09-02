@@ -1,13 +1,18 @@
-import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Container } from './components/Container/Container';
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
-import { Notification } from './components/Notification/Notification';
-import Filter from './components/Filter/Filter';
 import { H1Styled, H2Styled } from './App.styles';
+import contactsOperations from './redux/contactsOperations';
 
-const App = ({ contacts }) => {
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
+
   return (
     <Container>
       <H1Styled>PhoneBook</H1Styled>
@@ -15,26 +20,13 @@ const App = ({ contacts }) => {
       <ContactForm />
 
       <H2Styled>Contacts</H2Styled>
-
-      {contacts.length > 0 ? (
-        <>
-          <Filter
-            id={uuidv4()}
-            label={'Find contacts by name'}
-            placeholder={'Boris Britva'}
-            name={'search'}
-          />
-          <ContactList />
-        </>
-      ) : (
-        <Notification text={'You don`t have any contacts'} />
-      )}
+      <ContactList />
     </Container>
   );
 };
 
-const mapStateToProps = state => ({
-  contacts: state.contactList.contacts,
-});
+const mapDispatchToProps = dispatch => {
+  return { contacts: () => dispatch(contactsOperations.fetchContacts()) };
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapDispatchToProps)(App);

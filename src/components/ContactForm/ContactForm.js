@@ -11,7 +11,6 @@ import {
 } from './ContactForm.styles';
 
 const ContactForm = ({ contacts, onSubmit }) => {
-  // const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -28,19 +27,15 @@ const ContactForm = ({ contacts, onSubmit }) => {
       default:
         return;
     }
-
-    // setId(uuidv4());
   };
 
   const resetForm = () => {
-    // setId('');
     setName('');
     setNumber('');
   };
 
   const submitForm = evt => {
     evt.preventDefault();
-    console.log(evt);
 
     if (
       contacts.some(

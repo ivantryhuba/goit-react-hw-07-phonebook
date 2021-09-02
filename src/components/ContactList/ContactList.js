@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import contactsOperations from '../../redux/contactsOperations';
 import { connect } from 'react-redux';
+import Filter from '../Filter/Filter';
+import { Notification } from '../Notification/Notification';
 import {
   ContactListStyled,
   ContactItemStyled,
@@ -10,16 +13,34 @@ import {
 
 const ContactList = ({ contacts, onRemoveContact }) => {
   return (
-    <ContactListStyled>
-      {contacts.map(({ id, name, number }) => (
-        <ContactItemStyled key={id}>
-          {name} : {number}
-          <RemoveBtnStyled type="button" onClick={() => onRemoveContact(id)}>
-            Remove
-          </RemoveBtnStyled>
-        </ContactItemStyled>
-      ))}
-    </ContactListStyled>
+    <>
+      {contacts.length > 0 ? (
+        <>
+          <Filter
+            id={uuidv4()}
+            label={'Find contacts by name'}
+            placeholder={'Boris Britva'}
+            name={'search'}
+          />
+
+          <ContactListStyled>
+            {contacts.map(({ id, name, number }) => (
+              <ContactItemStyled key={id}>
+                {name} : {number}
+                <RemoveBtnStyled
+                  type="button"
+                  onClick={() => onRemoveContact(id)}
+                >
+                  Remove
+                </RemoveBtnStyled>
+              </ContactItemStyled>
+            ))}
+          </ContactListStyled>
+        </>
+      ) : (
+        <Notification text={'You don`t have any contacts'} />
+      )}
+    </>
   );
 };
 

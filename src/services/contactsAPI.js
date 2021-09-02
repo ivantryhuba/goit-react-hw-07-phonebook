@@ -14,8 +14,4 @@ const removeContact = contactId => {
   return axios.delete(`/contacts/${contactId}`);
 };
 
-const updateContact = (contactId, update) => {
-  return axios.patch(`/contacts/${contactId}`, update).then(({ data }) => data);
-};
-
-export default { fetchContacts, addContact, removeContact, updateContact };
+export default { fetchContacts, addContact, removeContact };
