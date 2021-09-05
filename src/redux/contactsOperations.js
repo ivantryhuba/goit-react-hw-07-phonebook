@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   fetchContactsRequest,
   fetchContactsSuccess,
@@ -13,7 +14,7 @@ import {
 
 axios.defaults.baseURL = 'http://localhost:5555';
 
-const fetchContacts = () => dispatch => {
+export const fetchContacts = () => dispatch => {
   dispatch(fetchContactsRequest());
 
   axios
@@ -22,7 +23,7 @@ const fetchContacts = () => dispatch => {
     .catch(error => dispatch(fetchContactsError(error)));
 };
 
-const addContact = newContact => dispatch => {
+export const addContact = newContact => dispatch => {
   dispatch(addContactRequest());
 
   axios
@@ -31,7 +32,7 @@ const addContact = newContact => dispatch => {
     .catch(error => dispatch(addContactError(error)));
 };
 
-const removeContact = contactId => dispatch => {
+export const removeContact = contactId => dispatch => {
   dispatch(removeContactRequest());
 
   axios
@@ -39,4 +40,3 @@ const removeContact = contactId => dispatch => {
     .then(() => dispatch(removeContactSuccess(contactId)))
     .catch(error => dispatch(removeContactError(error)));
 };
-export default { fetchContacts, addContact, removeContact };

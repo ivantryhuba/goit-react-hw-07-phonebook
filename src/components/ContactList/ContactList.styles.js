@@ -35,7 +35,7 @@ export const RemoveBtnStyled = styled.button`
   font-size: 15px;
   font-weight: 500;
 
-  background-color: turquoise;
+  background-color: Orange;
   border: 2px solid orangered;
   border-radius: 5px;
   cursor: pointer;

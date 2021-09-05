@@ -6,5 +6,5 @@ export const NotificationStyled = styled.p`
   padding: 10px;
   font-size: 20px;
   font-weight: 500;
-  color: orange;
+  color: OrangeRed;
 `;
